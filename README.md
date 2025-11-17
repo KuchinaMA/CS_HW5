@@ -40,6 +40,6 @@ python3 main.py --role client --host localhost --port 8888
 
 ## Что есть в проекте?
 - исходный код (`main.py`, `protocol.py`, `tcp_client.py`, `tcp_server.py`, `tls_utils.py`);
-- `certs\server.cert.pem` и `certs\server.key.pem` — самоподписанный сертификат и приватныйключ, которые использовались в ходе выполнения;
+- `certs\server.cert.pem` и `certs\server.key.pem` — самоподписанный сертификат и приватный ключ, которые использовались в ходе выполнения;
 - `tls_traffic.pcap` — запись трафика, в которой видно взаимодействие клиента и сервера;
 - `sslkeylog.txt` — результат логирования ключей, соответствующий записи трафика.
