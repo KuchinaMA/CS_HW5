@@ -23,9 +23,8 @@ def create_ssl_context(role='server', certfile=None, keyfile=None, cafile=None):
     
     return context
 
-def wrap_socket(sock, context, role='server'):
-
+def wrap_socket(sock, context, role='server', server_hostname=None):
     if role == 'server':
         return context.wrap_socket(sock, server_side=True)
     else:
-        return context.wrap_socket(sock, server_side=False)
+        return context.wrap_socket(sock, server_side=False, server_hostname=server_hostname)

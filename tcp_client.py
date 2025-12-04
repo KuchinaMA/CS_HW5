@@ -7,7 +7,7 @@ def tcp_client(host, port, cafile=None):
     ssl_context = create_ssl_context('client', cafile=cafile)
     
     with socket.create_connection((host, port)) as s:
-        ssl_sock = wrap_socket(s, ssl_context, 'client')
+        ssl_sock = wrap_socket(s, ssl_context, 'client', server_hostname=host)
         
         print(f"[TCP CLIENT] Connected to {host}:{port}")
         print(f"[TCP CLIENT] TLS enabled: YES")
