@@ -1,7 +1,7 @@
 import ssl
 import os
 
-def create_ssl_context(role='server', certfile=None, keyfile=None):
+def create_ssl_context(role='server', certfile=None, keyfile=None, cafile=None):
 
     context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH if role == 'server' else ssl.Purpose.SERVER_AUTH)
 
@@ -17,8 +17,9 @@ def create_ssl_context(role='server', certfile=None, keyfile=None):
             print("[TLS] Warning: Running server without certificate")
 
     if role == 'client':
-        context.check_hostname = False
-        context.verify_mode = ssl.CERT_NONE
+        context.check_hostname = True
+        if cafile:
+            context.load_verify_locations(cafile=cafile)
     
     return context
 

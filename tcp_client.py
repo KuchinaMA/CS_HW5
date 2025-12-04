@@ -2,9 +2,9 @@ import socket
 from protocol import send_msg, recv_msg
 from tls_utils import create_ssl_context, wrap_socket
 
-def tcp_client(host, port):
+def tcp_client(host, port, cafile=None):
 
-    ssl_context = create_ssl_context('client')
+    ssl_context = create_ssl_context('client', cafile=cafile)
     
     with socket.create_connection((host, port)) as s:
         ssl_sock = wrap_socket(s, ssl_context, 'client')

@@ -10,13 +10,14 @@ def main():
 
     parser.add_argument("--certfile", help="Path to certificate file (server only)")
     parser.add_argument("--keyfile", help="Path to private key file (server only)")
+    parser.add_argument("--cafile", help="CA certificate file (client only)")
 
     args = parser.parse_args()
 
     if args.role == "server":
         tcp_server(args.host, args.port, args.certfile, args.keyfile)
     elif args.role == "client":
-        tcp_client(args.host, args.port)
+        tcp_client(args.host, args.port, args.cafile)
 
 if __name__ == "__main__":
     main()

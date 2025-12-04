@@ -35,7 +35,7 @@ python3 main.py --role server --certfile certs/server.cert.pem --keyfile certs/s
 5. Запуск клиента (в отдельном окне):
 ```
 export SSLKEYLOGFILE=sslkeylog.txt
-python3 main.py --role client --host localhost --port 8888
+python3 main.py --role client --host localhost --port 8888 --cafile certs/server.cert.pem
 ```
 
 ## Что есть в проекте?
